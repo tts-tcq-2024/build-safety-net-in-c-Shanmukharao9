@@ -7,5 +7,10 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
   generateSoundex("AX", soundex);
   ASSERT_EQ(soundex,"A200");
   generateSoundex("123", soundex);
-  ASSERT_EQ(soundex,"A200");
+  ASSERT_EQ(soundex,"L000");
+  generateSoundex("", soundex);
+  ASSERT_EQ(soundex,"100");
+  generateSoundex("Leo", soundex);
+  ASSERT_EQ(soundex,"L000");
+ 
 }
