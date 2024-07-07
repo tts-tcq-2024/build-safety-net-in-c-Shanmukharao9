@@ -26,7 +26,7 @@ void generateSoundex(const char *name, char *soundex) {
         soundex[0] = '\0';
         return;
     }
-    soundex[0] = std::toupper(static)cast<unsigned char>(name[0]));
+    soundex[0] = std::toupper(static_cast<unsigned char>(name[0]));
     int sIndex = 1;
 
     for (int i = 1; i < len && sIndex < 4; i++) {
