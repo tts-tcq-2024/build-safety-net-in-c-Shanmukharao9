@@ -6,4 +6,6 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
   char soundex[5];
   generateSoundex("AX", soundex);
   ASSERT_EQ(soundex,"A200");
+  generateSoundex("123", soundex);
+  ASSERT_EQ(soundex,"A200");
 }
