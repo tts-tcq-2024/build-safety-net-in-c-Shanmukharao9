@@ -6,7 +6,7 @@
 #include <string.h>
 
 char getSoundexCode(char c) {
-    c = toupper(c);
+    c = std::toupper(static_cast<unsigned char>(c));
     switch (c) {
         case 'B': case 'F': case 'P': case 'V': return '1';
         case 'C': case 'G': case 'J': case 'K': case 'Q': case 'S': case 'X': case 'Z': return '2';
@@ -19,8 +19,14 @@ char getSoundexCode(char c) {
 }
 
 void generateSoundex(const char *name, char *soundex) {
+    if(name == nullptr || soundex == nullptr) return;
+    
     int len = strlen(name);
-    soundex[0] = toupper(name[0]);
+    if(len == 0){
+        soundex[0] = '\0';
+        return;
+    }
+    soundex[0] = std::toupper(static)cast<unsigned char>(name[0]));
     int sIndex = 1;
 
     for (int i = 1; i < len && sIndex < 4; i++) {
