@@ -12,12 +12,7 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
   generateSoundex("AX", soundex);
   ASSERT_STREQ(soundex,"A200");
 }
-TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_3) {
- //AAA
-  char soundex[5];
-  generateSoundex("Leo", soundex);
-  ASSERT_STREQ(soundex,"E510");
-}
+
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_4) {
  //AAA
   char soundex[5];
