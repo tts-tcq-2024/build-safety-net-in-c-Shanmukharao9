@@ -3,39 +3,48 @@
 #include "Soundex.h"
 #include <ctype.h>
 #include <string.h>
+#include "Soundex.h"
+#include <cctype>
 
-char getSoundexCode(char c) {
-    c = std::toupper(static_cast<unsigned char>(c));
-    switch (c) {
-        case 'B': case 'F': case 'P': case 'V': return '1';
-        case 'C': case 'G': case 'J': case 'K': case 'Q': case 'S': case 'X': case 'Z': return '2';
-        case 'D': case 'T': return '3';
-        case 'L': return '4';
-        case 'M': case 'N': return '5';
-        case 'R': return '6';
-        default: return '0'; // For A, E, I, O, U, H, W, Y
-    }
+char getSoundexCode(char c)
+{
+    static const char soundexCodes[26] = {'0', '1', '2', '3', '0', '1', '2', '0', '0', '2', '2', '4', '5', '5', '0', '1', '2', '6', '2', '3', '0', '1', '0', '2', '0', '2'};
+    return soundexCode[toupper(c) - 'A'];
 }
-void generateSoundex(const char *name, char *soundex) {
-    if(name == nullptr || soundex == nullptr) return;
+
+char elmZroRptVlu (char prevcode, std::string& soundex, size i, const std::string& name)
+{
+   char code = getSoundexCode(name[i]);
+   if (code != '0' && code != prevcode)
+    {
+        soundex += code;
+        prevcode = code;
+    } 
+    return prevcode;
+}
+
+char getStringCode(const std::string& name, std::string& soundex, char prevcode)
+{
+    for (size i = 1; i < name.length() && soundex.length() < 4; ++i)
+    {
+        char prevCode = elmZroRptVlu(prevCode, soundex, i, name);
+    }
+    return prevCode;
+}
+
+std::string generateSoundex(const std::string& name) 
+{
+    if (name.empty()) return "";
+
+    std::string soundex(1, toupper(name[0]));
+    char prevCode = getSoundexCode(name[0]);
+
+    prevCode = getStringCode(name, soundex, prevCode);
     
-    int len = strlen(name);
-    if(len == 0){
-        soundex[0] = '\0';
-        return;
+    while (soundex.length() < 4) 
+    {
+        soundex += '0';
     }
-    soundex[0] = std::toupper(static_cast<unsigned char>(name[0]));
-    int sIndex = 1;
 
-    for (int i = 1; i < len && sIndex < 4; i++) {
-        char code = getSoundexCode(name[i]);
-        if (code != '0' && code != soundex[sIndex - 1]) {
-            soundex[sIndex++] = code;
-        }
-    }
-    while (sIndex < 4) {
-        soundex[sIndex++] = '0';
-    }
-    soundex[4] = '\0';
+    return soundex;
 }
-#endif // SOUNDEX_H
