@@ -4,15 +4,15 @@
 char soundex[5];
 
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
- //AAA
- 
- generateSoundex("Robert", soundex);
- generateSoundex("Honeyman", soundex);
- generateSoundex("Tymczak", soundex);
- generateSoundex("Pfister", soundex);
- generateSoundex("Rubin", soundex);
- generateSoundex("Emmb3$", soundex);
- 
+ //Basic tests
+    testSoundex("Example", soundex);
+    testSoundex("Euler", soundex);
+    testSoundex("Gauss", soundex);
+    testSoundex("Hilbert", soundex);
+    testSoundex("Knuth", soundex);
+    testSoundex("Lloyd", soundex);
+    testSoundex("Lukasiewicz", soundex);
+
   //ASSERT_EQ(soundex,"R163");
 }
 
