@@ -11,6 +11,7 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  generateSoundex("Tymczak", soundex);
  generateSoundex("Pfister", soundex);
  generateSoundex("Rubin", soundex);
+ generateSoundex("Emmb3$", soundex);
  
   //ASSERT_EQ(soundex,"R163");
 }
@@ -27,6 +28,7 @@ TEST(SoudexTestsuite, VowelsWithAppropriateDigits) {
  generateSoundex("A", soundex);
  generateSoundex("", soundex);
  generateSoundex("123", soundex);
+ generateSoundex("H3ll0W0rld", soundex);
  generateSoundex("AA", soundex);
  generateSoundex("R123", soundex);
  generateSoundex("Clark", soundex);
@@ -42,5 +44,7 @@ TEST(SoudexTestsuite, VowelsWithAppropriateDigits) {
  generateSoundex("Bbbb", soundex);
  generateSoundex("//;\n1;2", soundex);
  generateSoundex("Andwtrs", soundex);
+ generateSoundex("OCjjnrr", soundex);
+ generateSoundex("123123", soundex);
 }
  
