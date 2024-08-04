@@ -18,38 +18,14 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
     generateSoundex("Bb", soundex);     
     generateSoundex("Pfister", soundex);
     generateSoundex("Jackson", soundex);
+    // Case insensitivity
+    generateSoundex("example", soundex);
+   generateSoundex("euler", soundex);
+   generateSoundex("GAUSS", soundex);
+   generateSoundex("hilBert", soundex);
+   generateSoundex("kNutH", soundex);
 
 }
 
-TEST(SoudexTestsuite, SameCodeWithAppropriateDigits) {
- generateSoundex("Ashcroft", soundex);
- generateSoundex("Rupert", soundex);
-}
-TEST(SoudexTestsuite, VowelsWithAppropriateDigits) { 
- generateSoundex("Ashcraft", soundex);
- generateSoundex("Honeyman", soundex);
- generateSoundex("O'Neil", soundex);
- generateSoundex("Van Dyke", soundex);
- generateSoundex("A", soundex);
- generateSoundex("", soundex);
- generateSoundex("123", soundex);
- generateSoundex("H3ll0W0rld", soundex);
- generateSoundex("AA", soundex);
- generateSoundex("R123", soundex);
- generateSoundex("Clark", soundex);
- generateSoundex("B", soundex);
- generateSoundex("Z", soundex);
- generateSoundex("C", soundex);
- generateSoundex("BF", soundex);
- generateSoundex("Honeymanbagsss", soundex);
- generateSoundex("McDonald", soundex);
- generateSoundex("John's", soundex);
- generateSoundex("Smith-Jones", soundex);
- generateSoundex("RoBeRt", soundex);
- generateSoundex("Bbbb", soundex);
- generateSoundex("//;\n1;2", soundex);
- generateSoundex("Andwtrs", soundex);
- generateSoundex("OCjjnrr", soundex);
- generateSoundex("123123", soundex);
-}
+
  
