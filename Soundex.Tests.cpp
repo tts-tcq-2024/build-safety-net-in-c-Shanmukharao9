@@ -25,6 +25,11 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
    generateSoundex("hilBert", soundex);
    generateSoundex("kNutH", soundex);
 
+    // Tests with non-alphabet characters
+   generateSoundex("Smith123", soundex);
+   generateSoundex("O'Brien", soundex);
+   generateSoundex("Washington!", soundex);
+   generateSoundex("@Doherty", soundex);
 }
 
 
