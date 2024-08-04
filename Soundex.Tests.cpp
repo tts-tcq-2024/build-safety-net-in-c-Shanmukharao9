@@ -12,8 +12,13 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
     generateSoundex("Knuth", soundex);
     generateSoundex("Lloyd", soundex);
     generateSoundex("Lukasiewicz", soundex);
+      // Edge cases
+    generateSoundex("", soundex);       
+    generateSoundex("A", soundex);      
+    generateSoundex("Bb", soundex);     
+    generateSoundex("Pfister", soundex);
+    generateSoundex("Jackson", soundex);
 
-  //ASSERT_EQ(soundex,"R163");
 }
 
 TEST(SoudexTestsuite, SameCodeWithAppropriateDigits) {
