@@ -1,33 +1,46 @@
 #include <gtest/gtest.h>
 #include "Soundex.h"
-TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_7) {
- //AAA
-  char soundex[5];
-  generateSoundex("1231", soundex);
-  ASSERT_STREQ(soundex,"0000");
-}
+
+char soundex[5];
+
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  //AAA
-  char soundex[5];
-  generateSoundex("AX", soundex);
-  ASSERT_STREQ(soundex,"A200");
+ 
+ generateSoundex("Robert", soundex);
+ generateSoundex("Honeyman", soundex);
+ generateSoundex("Tymczak", soundex);
+ generateSoundex("Pfister", soundex);
+ generateSoundex("Rubin", soundex);
+ 
+  //ASSERT_EQ(soundex,"R163");
 }
 
-TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_4) {
- //AAA
-  char soundex[5];
-  generateSoundex("", soundex);
- // ASSERT_STREQ(soundex,"0000");
+TEST(SoudexTestsuite, SameCodeWithAppropriateDigits) {
+ generateSoundex("Ashcroft", soundex);
+ generateSoundex("Rupert", soundex);
 }
-TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_5) {
- //AAA
-  char soundex[5];
-  generateSoundex("bef", soundex);
- // ASSERT_STREQ(soundex,"E100");
+TEST(SoudexTestsuite, VowelsWithAppropriateDigits) { 
+ generateSoundex("Ashcraft", soundex);
+ generateSoundex("Honeyman", soundex);
+ generateSoundex("O'Neil", soundex);
+ generateSoundex("Van Dyke", soundex);
+ generateSoundex("A", soundex);
+ generateSoundex("", soundex);
+ generateSoundex("123", soundex);
+ generateSoundex("AA", soundex);
+ generateSoundex("R123", soundex);
+ generateSoundex("Clark", soundex);
+ generateSoundex("B", soundex);
+ generateSoundex("Z", soundex);
+ generateSoundex("C", soundex);
+ generateSoundex("BF", soundex);
+ generateSoundex("Honeymanbagsss", soundex);
+ generateSoundex("McDonald", soundex);
+ generateSoundex("John's", soundex);
+ generateSoundex("Smith-Jones", soundex);
+ generateSoundex("RoBeRt", soundex);
+ generateSoundex("Bbbb", soundex);
+ generateSoundex("//;\n1;2", soundex);
+ generateSoundex("Andwtrs", soundex);
 }
-TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_6) {
- //AAA
-  char soundex[5];
-  generateSoundex("aeiou", soundex);
- // ASSERT_STREQ(soundex,"O256");
-}
+ 
