@@ -3,8 +3,8 @@
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits_7) {
  //AAA
   char soundex[5];
-  generateSoundex("123321", soundex);
- // ASSERT_STREQ(soundex,"0000");
+  generateSoundex("1231", soundex);
+  ASSERT_STREQ(soundex,"0000");
 }
 TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
  //AAA
